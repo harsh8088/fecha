@@ -1,0 +1,58 @@
+
+  
+   .home-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    }
+   .card-container{
+     padding-top: 10px;
+     width:250px;
+     height:450px;
+    }
+
+   .img-container{
+    background: darkgray;
+    width:250px;
+    height: 350px;
+    }
+
+   .img-action-container{
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    padding-top: 5px;
+    }
+
+    .img-name-container{
+      justify-content: center;
+      width: 250px;
+      padding-top: 5px;
+      text-align: center;
+      }
+
+   .img-like{
+    width:50px;
+    height:50px;
+    float: right;
+    margin-right: 5px;
+    }
+   .img-dislike{
+    width:40px;
+    height:40px;
+    float: left;
+    margin-left: 5px;
+   }
+   
+
+  
+  
+  
+  
+  
+  
+  
+ 
