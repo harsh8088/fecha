@@ -4,6 +4,9 @@ import Chat from './chat.js';
 import Match from './match.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import firebase from './firebase.js';
+import NavHeader from './nav_header.js';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 class App extends Component {
 
@@ -32,9 +35,18 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Home list={this.state.list} />
-      </div>
+      // <div>
+      //   {/* <Home list={this.state.list} /> */}
+      //   <Match matchList={this.state.list} />
+      // </div>
+      <Router>
+        <div >
+          <NavHeader/>
+          <Route exact path="/" component={Home} />
+          <Route path="/match" component={Match} />
+          <Route path="/chat" component={Chat} />
+        </div>
+      </Router>
     );
   }
 
@@ -43,7 +55,7 @@ class App extends Component {
   componentDidMount() {
     const listRef = firebase.database().ref().child('list');
     console.log(listRef);
-    var items =  [
+    var items = [
       {
         "id": "ID_8001",
         "category": "male",
@@ -55,7 +67,7 @@ class App extends Component {
       {
         "id": "ID_8002",
         "category": "male",
-   "name": "Joshep Lint",
+        "name": "Joshep Lint",
         "match": "no",
         "like": "yes",
         "thumbnail": "https://firebasestorage.googleapis.com/v0/b/fecha-b48d0.appspot.com/o/men1.jpg?alt=media&token=982af801-0a17-4611-b4b2-9a4433ee27cb"
@@ -63,7 +75,7 @@ class App extends Component {
       {
         "id": "ID_8003",
         "category": "female",
-   "name": "Kate Prine",
+        "name": "Kate Prine",
         "match": "yes",
         "like": "yes",
         "thumbnail": "https://firebasestorage.googleapis.com/v0/b/fecha-b48d0.appspot.com/o/women.jpg?alt=media&token=f2b9d29a-e460-4acd-b9f1-36e4007ad797"
@@ -71,13 +83,13 @@ class App extends Component {
       {
         "id": "ID_8004",
         "category": "female",
-   "name": "Angella Brings",
+        "name": "Angella Brings",
         "ismatch": "no",
         "like": "yes",
         "thumbnail": "https://firebasestorage.googleapis.com/v0/b/fecha-b48d0.appspot.com/o/women1.jpg?alt=media&token=97cc9ba5-3a13-4d2f-941d-c5cc41867faf"
       }
     ];
-    listRef.on('value', function(snapshot) {
+    listRef.on('value', function (snapshot) {
       console.log(snapshot.val());
       // updateStarCount(postElement, snapshot.val());
     });
